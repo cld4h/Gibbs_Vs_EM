@@ -1,3 +1,9 @@
+%%%%%%from Rmarkdown%%%%%%
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+%%%%%%from Rmarkdown%%%%%%
 \documentclass[12pt]{article}
 
 % Margins
@@ -18,10 +24,108 @@
 % Font
 \usepackage{times}
 
+%%%%%%from Rmarkdown%%%%%%
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+%\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+%%%%%%from Rmarkdown%%%%%%
+
 \addbibresource{cite.bib}
 
 % Title
-\title{Comparing Gibbs sampling and EM-Algorithm method for missing data imputation}
+\title{Comparing Gibbs sampling and EM-Algorithm method for missing data imputation\footnote{The source code is available: \url{https://github.com/cld4h/Gibbs_Vs_EM}}}
 \author{Hao Xu T00732492}
 \date{\today}
 
@@ -84,9 +188,9 @@ The final objective is to conduct a detailed comparison of the performance of th
 
 \section{Data and Variables}
 
-In this work, we downloaded the data from 2019 IELTS Test Statistic Report\footnote{\url{https://ieltscenterofficial.github.io/examcenter/for-researchers/test-statistics/test-taker-performance.html}} and extracted the ``Academic mean performance by nationality" table.
+In this work, we downloaded the data from 2019 IELTS Test Statistic Report\footnote{\url{https://ieltscenterofficial.github.io/examcenter/for-researchers/test-statistics/test-taker-performance.html}} and extracted the ``Academic mean performance by nationality'' table.
 
-The table contains five columnns, which are ``Reading", ``Listening", ``Writing", ``Speaking" and ``Overall", each represent one type of score from the IELTS test. Each row of the data represent the average score of students from a specific nationality. Figure~\ref{fig:IELTS} (in Appendix) plots all the data poins from the table.
+The table contains five columnns, which are ``Reading'', ``Listening'', ``Writing'', ``Speaking'' and ``Overall'', each represent one type of score from the IELTS test. Each row of the data represent the average score of students from a specific nationality. Figure~\ref{fig:IELTS} (in Appendix~\ref{app:IELTS}) plots all the data poins from the table.
 
 The univariate histogram and bivariate scatterplots of the test data is shown in Figure~\ref{fig:stats}. We can see that all five variabels are normally distributed, and there are correlation between these 5 variables. So our assumption is that the data follows a multivariate normal distribution.
 
@@ -225,7 +329,7 @@ The effectiveness of each method is assessed by computing the mean square error 
 
 \section{Results}
 
-In this section, we present the findings from our simulations to evaluate the performance of Gibbs Sampling and the EM Algorithm in handling missing data within an IELTS scores dataset. To facilitate a clear and comprehensive understanding of how well each method predicted the missing values, we have included a detailed plot that illustrates the correlation between the predicted values and the true values. This plot can be found in the Appendix (see Appendix~\ref{sim-result}).
+In this section, we present the findings from our simulations to evaluate the performance of Gibbs Sampling and the EM Algorithm in handling missing data within an IELTS scores dataset. To facilitate a clear and comprehensive understanding of how well each method predicted the missing values, we have included a detailed plot that illustrates the correlation between the predicted values and the true values. This plot can be found in the Appendix~\ref{sim-result}.
 
 Furthermore, to quantitatively assess the accuracy of each imputation method across different scenarios, we calculated the mean squared errors (MSE) for varying levels of missing data. These MSE values are crucial indicators of prediction accuracy, providing a straightforward metric for comparing the performance of the two methods under conditions ranging from 10\% to 30\% missing data. 
 
@@ -282,6 +386,7 @@ These findings suggest that while the EM algorithm might be preferred for quicke
 \section{Appendix}
 % Appendix content goes here
 \subsection{IELTS Scores of each Nationality}
+\label{app:IELTS}
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{pic/IELTS.pdf}
@@ -425,4 +530,630 @@ These findings suggest that while the EM algorithm might be preferred for quicke
 	\caption{The posterior (and prior) distribution of $\sigma_{j, j}$ (left) and $\theta_j$ (right). Posterior distribution is ploted in black, and prior distribution is ploted in gray. The vertical dashed line marks the initial value for prior.}
 	\label{fig:0.30-Posterior_vs_Prior}
 \end{figure}
+
+\newpage
+
+\subsection{Source code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IELTS }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"IELTS.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/IELTS.pdf"}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{,}\FloatTok{4.5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.88}\NormalTok{,}\FloatTok{0.50}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\AttributeTok{type =} \StringTok{"n"}\NormalTok{, }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(IELTS)), }\AttributeTok{ylim =} \FunctionTok{range}\NormalTok{(IELTS[, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]),}
+     \AttributeTok{xlab =} \StringTok{""}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Scores"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Scores by Nationality"}\NormalTok{)}
+
+\CommentTok{\# Add lines for each nationality}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(IELTS)) \{}
+  \FunctionTok{lines}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(IELTS)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{), IELTS[i, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{], }\AttributeTok{type =} \StringTok{"o"}\NormalTok{, }\AttributeTok{pch =}\NormalTok{ i}\SpecialCharTok{\%\%}\DecValTok{10}\NormalTok{, }\AttributeTok{col =}\NormalTok{ i)}
+\NormalTok{\}}
+
+\CommentTok{\# Add legend}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =}\NormalTok{ IELTS[,}\DecValTok{1}\NormalTok{], }\AttributeTok{col =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(IELTS), }\AttributeTok{pch =}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(IELTS))}\SpecialCharTok{\%\%}\DecValTok{10}\NormalTok{, }
+       \AttributeTok{bty =} \StringTok{"n"}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{y.intersp =} \FloatTok{0.75}\NormalTok{)}
+
+\FunctionTok{text}\NormalTok{(}\AttributeTok{x =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}
+     \AttributeTok{y =} \FunctionTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{)[}\DecValTok{3}\NormalTok{] }\SpecialCharTok{{-}} \FloatTok{0.45}\NormalTok{,}
+     \AttributeTok{labels =} \FunctionTok{colnames}\NormalTok{(IELTS)[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{],}
+     \AttributeTok{xpd =} \ConstantTok{NA}\NormalTok{,}
+     \AttributeTok{srt =} \DecValTok{45}\NormalTok{,}
+     \AttributeTok{cex =} \FloatTok{1.2}\NormalTok{,}
+     \AttributeTok{adj =} \DecValTok{1}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\subsubsection{IELTS scores Missing Data Imputation By Gibbs
+sampler}\label{ielts-scores-missing-data-imputation-by-gibbs-sampler}
+
+\paragraph{Utility functions}\label{utility-functions}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\# Simulate multivariate normal vector}
+\NormalTok{rmvnorm}\OtherTok{\textless{}{-}}
+\ControlFlowTok{function}\NormalTok{(n,mu,Sigma) \{}
+\NormalTok{  p}\OtherTok{\textless{}{-}}\FunctionTok{length}\NormalTok{(mu)}
+\NormalTok{  res}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}\AttributeTok{nrow=}\NormalTok{n,}\AttributeTok{ncol=}\NormalTok{p)}
+  \ControlFlowTok{if}\NormalTok{( n}\SpecialCharTok{\textgreater{}}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ p}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{ ) \{}
+\NormalTok{  E}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(n}\SpecialCharTok{*}\NormalTok{p),n,p)}
+\NormalTok{  res}\OtherTok{\textless{}{-}}\FunctionTok{t}\NormalTok{(  }\FunctionTok{t}\NormalTok{(E}\SpecialCharTok{\%*\%}\FunctionTok{chol}\NormalTok{(Sigma)) }\SpecialCharTok{+}\FunctionTok{c}\NormalTok{(mu))}
+\NormalTok{                   \}}
+\NormalTok{  res}
+\NormalTok{                       \}}
+\DocumentationTok{\#\#\#\# Simulate from the Wishart distribution}
+\NormalTok{rwish}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(n,nu0,S0)}
+\NormalTok{\{}
+\NormalTok{  sS0 }\OtherTok{\textless{}{-}} \FunctionTok{chol}\NormalTok{(S0)}
+\NormalTok{  S}\OtherTok{\textless{}{-}}\FunctionTok{array}\NormalTok{( }\AttributeTok{dim=}\FunctionTok{c}\NormalTok{( }\FunctionTok{dim}\NormalTok{(S0),n ) )}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n)}
+\NormalTok{  \{}
+\NormalTok{     Z }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(nu0 }\SpecialCharTok{*} \FunctionTok{dim}\NormalTok{(S0)[}\DecValTok{1}\NormalTok{]), nu0, }\FunctionTok{dim}\NormalTok{(S0)[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{\%*\%}\NormalTok{ sS0}
+\NormalTok{     S[,,i]}\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(Z)}\SpecialCharTok{\%*\%}\NormalTok{Z}
+\NormalTok{  \}}
+\NormalTok{  S[,,}\DecValTok{1}\SpecialCharTok{:}\NormalTok{n]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Y0}\OtherTok{\textless{}{-}}\NormalTok{IELTS[,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{6}\NormalTok{]}
+\NormalTok{Y}\OtherTok{\textless{}{-}}\NormalTok{Y0}
+\NormalTok{n}\OtherTok{\textless{}{-}}\FunctionTok{dim}\NormalTok{(Y)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{dim}\NormalTok{(Y)[}\DecValTok{2}\NormalTok{]}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\CommentTok{\# Create some NA values!}
+\NormalTok{O}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(n}\SpecialCharTok{*}\NormalTok{p,}\DecValTok{1}\NormalTok{,.}\DecValTok{7}\NormalTok{),n,p)}
+\NormalTok{Y[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}\OtherTok{\textless{}{-}}\ConstantTok{NA}
+
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/stat.pdf"}\NormalTok{,}\AttributeTok{family=}\StringTok{"Times"}\NormalTok{, }\AttributeTok{height=}\DecValTok{6}\NormalTok{,}\AttributeTok{width=}\DecValTok{6}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,.}\DecValTok{5}\NormalTok{,.}\DecValTok{5}\NormalTok{)}\SpecialCharTok{*}\FloatTok{1.75}\NormalTok{,}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(p,p),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{,.}\DecValTok{75}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\ControlFlowTok{for}\NormalTok{(j1 }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+\ControlFlowTok{for}\NormalTok{(j2 }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+ \ControlFlowTok{if}\NormalTok{(j1}\SpecialCharTok{==}\NormalTok{j2)\{}\FunctionTok{hist}\NormalTok{(Y[,j1],}\AttributeTok{main=}\StringTok{""}\NormalTok{);}\FunctionTok{mtext}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(Y)[j1],}\AttributeTok{side=}\DecValTok{3}\NormalTok{,}\AttributeTok{line=}\SpecialCharTok{{-}}\NormalTok{.}\DecValTok{1}\NormalTok{,}\AttributeTok{cex=}\NormalTok{.}\DecValTok{7}\NormalTok{)\}}
+  \ControlFlowTok{if}\NormalTok{(j1}\SpecialCharTok{!=}\NormalTok{j2) \{ }\FunctionTok{plot}\NormalTok{(Y[,j1],Y[,j2],}\AttributeTok{xlab=}\StringTok{""}\NormalTok{,}\AttributeTok{ylab=}\StringTok{""}\NormalTok{,}\AttributeTok{pch=}\DecValTok{16}\NormalTok{,}\AttributeTok{cex=}\NormalTok{.}\DecValTok{7}\NormalTok{)\} }
+\NormalTok{                \}\}}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# prior parameters}
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{dim}\NormalTok{(Y)[}\DecValTok{2}\NormalTok{]}
+\CommentTok{\# Take the population mean as the prior}
+\NormalTok{mu0}\OtherTok{\textless{}{-}}\FunctionTok{apply}\NormalTok{(Y[,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)],}\AttributeTok{MARGIN=}\DecValTok{2}\NormalTok{,}\AttributeTok{FUN=}\NormalTok{mean,}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\CommentTok{\# Standard deivation: 4.0\textasciitilde{}8.5 {-}\textgreater{} 95\% sigma\_0 = 1.1538}
+\NormalTok{sd0}\OtherTok{\textless{}{-}}\FunctionTok{rep}\NormalTok{(}\FloatTok{1.1538}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{L0}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(.}\DecValTok{5}\NormalTok{,p,p) ; }\FunctionTok{diag}\NormalTok{(L0)}\OtherTok{\textless{}{-}}\DecValTok{1}\NormalTok{ ; L0}\OtherTok{\textless{}{-}}\NormalTok{L0}\SpecialCharTok{*}\FunctionTok{outer}\NormalTok{(sd0,sd0)}
+\NormalTok{nu0}\OtherTok{\textless{}{-}}\NormalTok{p}\SpecialCharTok{+}\DecValTok{2}\NormalTok{ ; S0}\OtherTok{\textless{}{-}}\NormalTok{L0}
+\DocumentationTok{\#\#\#}
+
+\DocumentationTok{\#\#\# starting values}
+\NormalTok{Sigma}\OtherTok{\textless{}{-}}\NormalTok{S0}
+\NormalTok{Y.full}\OtherTok{\textless{}{-}}\NormalTok{Y}
+\ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p)}
+\NormalTok{\{}
+\NormalTok{  Y.full[}\FunctionTok{is.na}\NormalTok{(Y.full[,j]),j]}\OtherTok{\textless{}{-}}\FunctionTok{mean}\NormalTok{(Y.full[,j],}\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+\DocumentationTok{\#\#\#}
+
+\DocumentationTok{\#\#\# Gibbs sampler}
+\NormalTok{THETA}\OtherTok{\textless{}{-}}\NormalTok{SIGMA}\OtherTok{\textless{}{-}}\NormalTok{Y.MISS}\OtherTok{\textless{}{-}}\ConstantTok{NULL}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{GIBBS\_start\_time}\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{(s }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{)}
+\NormalTok{\{}
+
+  \DocumentationTok{\#\#\#update theta}
+\NormalTok{  ybar}\OtherTok{\textless{}{-}}\FunctionTok{apply}\NormalTok{(Y.full,}\DecValTok{2}\NormalTok{,mean)}
+\NormalTok{  Ln}\OtherTok{\textless{}{-}}\FunctionTok{solve}\NormalTok{( }\FunctionTok{solve}\NormalTok{(L0) }\SpecialCharTok{+}\NormalTok{ n}\SpecialCharTok{*}\FunctionTok{solve}\NormalTok{(Sigma) )}
+\NormalTok{  mun}\OtherTok{\textless{}{-}}\NormalTok{Ln}\SpecialCharTok{\%*\%}\NormalTok{( }\FunctionTok{solve}\NormalTok{(L0)}\SpecialCharTok{\%*\%}\NormalTok{mu0 }\SpecialCharTok{+}\NormalTok{ n}\SpecialCharTok{*}\FunctionTok{solve}\NormalTok{(Sigma)}\SpecialCharTok{\%*\%}\NormalTok{ybar )}
+\NormalTok{  theta}\OtherTok{\textless{}{-}}\FunctionTok{rmvnorm}\NormalTok{(}\DecValTok{1}\NormalTok{,mun,Ln)}
+  \DocumentationTok{\#\#\#}
+  
+  \DocumentationTok{\#\#\#update Sigma}
+\NormalTok{  Sn}\OtherTok{\textless{}{-}}\NormalTok{ S0 }\SpecialCharTok{+}\NormalTok{ ( }\FunctionTok{t}\NormalTok{(Y.full)}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(theta) )}\SpecialCharTok{\%*\%}\FunctionTok{t}\NormalTok{( }\FunctionTok{t}\NormalTok{(Y.full)}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(theta) )}
+\CommentTok{\#  Sigma\textless{}{-}rinvwish(1,nu0+n,solve(Sn))}
+\NormalTok{  Sigma}\OtherTok{\textless{}{-}}\FunctionTok{solve}\NormalTok{( }\FunctionTok{rwish}\NormalTok{(}\DecValTok{1}\NormalTok{, nu0}\SpecialCharTok{+}\NormalTok{n, }\FunctionTok{solve}\NormalTok{(Sn)) )}
+  \DocumentationTok{\#\#\#}
+  
+  \DocumentationTok{\#\#\#update missing data}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n)}
+\NormalTok{  \{ }
+\NormalTok{    b }\OtherTok{\textless{}{-}}\NormalTok{ ( O[i,]}\SpecialCharTok{==}\DecValTok{0}\NormalTok{ )}
+\NormalTok{    a }\OtherTok{\textless{}{-}}\NormalTok{ ( O[i,]}\SpecialCharTok{==}\DecValTok{1}\NormalTok{ )}
+\NormalTok{    iSa}\OtherTok{\textless{}{-}} \FunctionTok{solve}\NormalTok{(Sigma[a,a])}
+\NormalTok{    beta.j }\OtherTok{\textless{}{-}}\NormalTok{ Sigma[b,a]}\SpecialCharTok{\%*\%}\NormalTok{iSa}
+\NormalTok{    s2.j   }\OtherTok{\textless{}{-}}\NormalTok{ Sigma[b,b] }\SpecialCharTok{{-}}\NormalTok{ Sigma[b,a]}\SpecialCharTok{\%*\%}\NormalTok{iSa}\SpecialCharTok{\%*\%}\NormalTok{Sigma[a,b]}
+\NormalTok{    theta.j}\OtherTok{\textless{}{-}}\NormalTok{ theta[b] }\SpecialCharTok{+}\NormalTok{ beta.j}\SpecialCharTok{\%*\%}\NormalTok{(}\FunctionTok{t}\NormalTok{(Y.full[i,a])}\SpecialCharTok{{-}}\NormalTok{theta[a])}
+\NormalTok{    Y.full[i,b] }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\DecValTok{1}\NormalTok{,theta.j,s2.j )}
+\NormalTok{  \}}
+  
+  \DocumentationTok{\#\#\# save results}
+\NormalTok{  THETA}\OtherTok{\textless{}{-}}\FunctionTok{rbind}\NormalTok{(THETA,theta) ; SIGMA}\OtherTok{\textless{}{-}}\FunctionTok{rbind}\NormalTok{(SIGMA,}\FunctionTok{c}\NormalTok{(Sigma))}
+\NormalTok{  Y.MISS}\OtherTok{\textless{}{-}}\FunctionTok{rbind}\NormalTok{(Y.MISS, Y.full[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{] )}
+  \DocumentationTok{\#\#\#}
+
+  \CommentTok{\#cat(s,theta,"\textbackslash{}n")}
+\NormalTok{\}}
+\NormalTok{GIBBS\_end\_time}\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+
+\DocumentationTok{\#\#\#\# Posterior mean and correlation matrix}
+\FunctionTok{apply}\NormalTok{(THETA,}\DecValTok{2}\NormalTok{,mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.325467 6.457498 5.705664 6.245985 6.233816
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{COR }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{( }\AttributeTok{dim=}\FunctionTok{c}\NormalTok{(p,p,}\DecValTok{1000}\NormalTok{) )}
+\ControlFlowTok{for}\NormalTok{(s }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{1000}\NormalTok{)}
+\NormalTok{\{}
+\NormalTok{  Sig}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{( SIGMA[s,] ,}\AttributeTok{nrow=}\NormalTok{p,}\AttributeTok{ncol=}\NormalTok{p)}
+\NormalTok{  COR[,,s] }\OtherTok{\textless{}{-}}\NormalTok{ Sig}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{( }\FunctionTok{outer}\NormalTok{( }\FunctionTok{diag}\NormalTok{(Sig),}\FunctionTok{diag}\NormalTok{(Sig) ) )}
+\NormalTok{\}}
+
+\FunctionTok{apply}\NormalTok{(COR,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]      [,2]      [,3]      [,4]      [,5]
+## [1,] 1.0000000 0.8834623 0.7915787 0.8035453 0.8782880
+## [2,] 0.8834623 1.0000000 0.8206582 0.8060882 0.8836628
+## [3,] 0.7915787 0.8206582 1.0000000 0.7376627 0.8145011
+## [4,] 0.8035453 0.8060882 0.7376627 1.0000000 0.8238962
+## [5,] 0.8782880 0.8836628 0.8145011 0.8238962 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{return}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## .Primitive("return")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\# Plot the Predicted vs True value}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/Gibbs\_PredvsTrue.pdf"}\NormalTok{,}\AttributeTok{family=}\StringTok{"Times"}\NormalTok{, }\AttributeTok{height=}\DecValTok{14}\NormalTok{,}\AttributeTok{width=}\DecValTok{4}\NormalTok{)}
+\NormalTok{Y.true}\OtherTok{\textless{}{-}}\NormalTok{Y0}
+\NormalTok{V}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{p,}\AttributeTok{nrow=}\NormalTok{n,}\AttributeTok{ncol=}\NormalTok{p,}\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{v.miss}\OtherTok{\textless{}{-}}\NormalTok{V[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\NormalTok{y.pred}\OtherTok{\textless{}{-}}\FunctionTok{apply}\NormalTok{(Y.MISS,}\DecValTok{2}\NormalTok{,mean)}
+\NormalTok{y.true}\OtherTok{\textless{}{-}}\NormalTok{Y.true[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{,.}\DecValTok{75}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p)\{ }\FunctionTok{plot}\NormalTok{(y.true[v.miss}\SpecialCharTok{==}\NormalTok{j], y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j], }
+          \AttributeTok{xlab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"true"}\NormalTok{, }\FunctionTok{colnames}\NormalTok{(Y.true)[j]), }
+          \AttributeTok{ylab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"predictied"}\NormalTok{, }\FunctionTok{colnames}\NormalTok{(Y.true)[j]),}\AttributeTok{pch=}\DecValTok{16}\NormalTok{ )}
+          \FunctionTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{mse }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{((y.true[v.miss}\SpecialCharTok{==}\NormalTok{j]}\SpecialCharTok{{-}}\NormalTok{ y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j])}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{),}\DecValTok{4}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\AttributeTok{x=}\FunctionTok{min}\NormalTok{(y.true[v.miss}\SpecialCharTok{==}\NormalTok{j]),}\AttributeTok{y=}\FunctionTok{max}\NormalTok{(y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j]),}\FunctionTok{paste}\NormalTok{(}\StringTok{"MSE:"}\NormalTok{, mse, }\AttributeTok{sep=}\StringTok{""}\NormalTok{), }
+     \AttributeTok{col=}\StringTok{"BLUE"}\NormalTok{, }\AttributeTok{cex=}\FloatTok{1.5}\NormalTok{, }\AttributeTok{adj=}\DecValTok{0}\NormalTok{,}\AttributeTok{pos=}\DecValTok{4}\NormalTok{)}
+\CommentTok{\#cat(j, mean( (y.true[v.miss==j]{-} y.pred[v.miss==j])\^{}2),"\textbackslash{}n") }
+\NormalTok{\}}
+\NormalTok{MSE\_GIBBS }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{((y.true}\SpecialCharTok{{-}}\NormalTok{ y.pred)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\# Convert SIGMA to an array of correlation parameters}
+\NormalTok{COR}\OtherTok{\textless{}{-}}\FunctionTok{array}\NormalTok{(}\AttributeTok{dim=}\FunctionTok{c}\NormalTok{(p,p,}\FunctionTok{dim}\NormalTok{(SIGMA)[}\DecValTok{1}\NormalTok{]) )}
+\ControlFlowTok{for}\NormalTok{(s }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{dim}\NormalTok{(SIGMA)[}\DecValTok{1}\NormalTok{]) \{}
+\NormalTok{Sig}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{( SIGMA[s,] ,}\AttributeTok{nrow=}\NormalTok{p,}\AttributeTok{ncol=}\NormalTok{p)}
+\NormalTok{COR[,,s] }\OtherTok{\textless{}{-}}\NormalTok{ Sig}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\FunctionTok{outer}\NormalTok{( }\FunctionTok{diag}\NormalTok{(Sig),}\FunctionTok{diag}\NormalTok{(Sig)))}
+\NormalTok{                           \}}
+\FunctionTok{colnames}\NormalTok{(COR)}\OtherTok{\textless{}{-}}\FunctionTok{rownames}\NormalTok{(COR)}\OtherTok{\textless{}{-}}\FunctionTok{colnames}\NormalTok{(Y)}
+
+
+
+\DocumentationTok{\#\#\#\# Function for posterior quantile intervals for matrices}
+\DocumentationTok{\#\#\#\# From the \textasciigrave{}sbgcop\textasciigrave{} package}
+\NormalTok{plotci.sA}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(sA, }\AttributeTok{ylabs =} \FunctionTok{colnames}\NormalTok{(sA[, , }\DecValTok{1}\NormalTok{]), }\AttributeTok{mgp =} \FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{, }\FloatTok{0.75}\NormalTok{, }
+    \DecValTok{0}\NormalTok{)) }
+\NormalTok{\{}
+\NormalTok{    qA }\OtherTok{\textless{}{-}} \FunctionTok{qM.sM}\NormalTok{(sA)}
+\NormalTok{    p }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(qA)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    tmp }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(qA)}
+\NormalTok{    tmp }\OtherTok{\textless{}{-}}\NormalTok{ tmp[tmp }\SpecialCharTok{!=} \DecValTok{1}\NormalTok{]}
+    \FunctionTok{par}\NormalTok{(}\AttributeTok{mgp =}\NormalTok{ mgp)}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+        \FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\AttributeTok{type =} \StringTok{"n"}\NormalTok{, }\AttributeTok{ylim =} \FunctionTok{range}\NormalTok{(}\FunctionTok{c}\NormalTok{(tmp), }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }
+            \AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, p), }\AttributeTok{ylab =}\NormalTok{ ylabs[j], }\AttributeTok{xaxt =} \StringTok{"n"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{""}\NormalTok{)}
+        \FunctionTok{points}\NormalTok{((}\DecValTok{1}\SpecialCharTok{:}\NormalTok{p)[}\SpecialCharTok{{-}}\NormalTok{j], qA[j, }\SpecialCharTok{{-}}\NormalTok{j, }\DecValTok{2}\NormalTok{], }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.6}\NormalTok{)}
+        \FunctionTok{segments}\NormalTok{(}\AttributeTok{x0 =}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{:}\NormalTok{p)[}\SpecialCharTok{{-}}\NormalTok{j], }\AttributeTok{y0 =}\NormalTok{ qA[j, }\SpecialCharTok{{-}}\NormalTok{j, }\DecValTok{1}\NormalTok{], }\AttributeTok{x1 =}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{:}\NormalTok{p)[}\SpecialCharTok{{-}}\NormalTok{j], }
+            \AttributeTok{y1 =}\NormalTok{ qA[j, }\SpecialCharTok{{-}}\NormalTok{j, }\DecValTok{3}\NormalTok{])}
+        \FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \DecValTok{0}\NormalTok{, }\AttributeTok{col =} \StringTok{"gray"}\NormalTok{)}
+        \FunctionTok{abline}\NormalTok{(}\AttributeTok{v =}\NormalTok{ j, }\AttributeTok{col =} \StringTok{"gray"}\NormalTok{)}
+\NormalTok{    \}}
+    \FunctionTok{axis}\NormalTok{(}\AttributeTok{side =} \DecValTok{1}\NormalTok{, }\AttributeTok{at =} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p, }\AttributeTok{labels =} \FunctionTok{colnames}\NormalTok{(qA[, , }\DecValTok{1}\NormalTok{]), }\AttributeTok{las =} \DecValTok{2}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{sR.sC}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(sC) }
+\NormalTok{\{}
+\NormalTok{    p }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(sC)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    s }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(sC)[}\DecValTok{3}\NormalTok{]}
+\NormalTok{    sR }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(p, p, s))}
+    \FunctionTok{dimnames}\NormalTok{(sR) }\OtherTok{\textless{}{-}} \FunctionTok{dimnames}\NormalTok{(sC)}
+    \ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{s) \{}
+\NormalTok{        C }\OtherTok{\textless{}{-}}\NormalTok{ sC[, , l]}
+\NormalTok{        R }\OtherTok{\textless{}{-}}\NormalTok{ C }\SpecialCharTok{*} \ConstantTok{NA}
+        \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p) \{}
+\NormalTok{            R[j, }\SpecialCharTok{{-}}\NormalTok{j] }\OtherTok{\textless{}{-}}\NormalTok{ C[j, }\SpecialCharTok{{-}}\NormalTok{j] }\SpecialCharTok{\%*\%} \FunctionTok{solve}\NormalTok{(C[}\SpecialCharTok{{-}}\NormalTok{j, }\SpecialCharTok{{-}}\NormalTok{j])}
+\NormalTok{        \}}
+\NormalTok{        sR[, , l] }\OtherTok{\textless{}{-}}\NormalTok{ R}
+\NormalTok{    \}}
+\NormalTok{    sR}
+\NormalTok{\}}
+
+\NormalTok{qM.sM}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{ (sM, }\AttributeTok{quantiles =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.975}\NormalTok{)) }
+\NormalTok{\{}
+\NormalTok{    p1 }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(sM)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{    p2 }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(sM)[}\DecValTok{2}\NormalTok{]}
+\NormalTok{    s }\OtherTok{\textless{}{-}} \FunctionTok{dim}\NormalTok{(sM)[}\DecValTok{3}\NormalTok{]}
+\NormalTok{    qM }\OtherTok{\textless{}{-}} \FunctionTok{array}\NormalTok{(}\AttributeTok{dim =} \FunctionTok{c}\NormalTok{(p1, p2, }\FunctionTok{length}\NormalTok{(quantiles)))}
+    \FunctionTok{dimnames}\NormalTok{(qM) }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\FunctionTok{dimnames}\NormalTok{(sM)[[}\DecValTok{1}\NormalTok{]], }\FunctionTok{dimnames}\NormalTok{(sM)[[}\DecValTok{2}\NormalTok{]], }
+        \FunctionTok{paste}\NormalTok{(quantiles }\SpecialCharTok{*} \DecValTok{100}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"\% quantile"}\NormalTok{, }\FunctionTok{length}\NormalTok{(quantiles)), }
+            \AttributeTok{sep =} \StringTok{""}\NormalTok{))}
+    \ControlFlowTok{for}\NormalTok{ (l }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(quantiles)) \{}
+\NormalTok{        qM[, , l] }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(sM, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), quantile, }\AttributeTok{prob =}\NormalTok{ quantiles[l], }
+            \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{    qM}
+\NormalTok{\}}
+
+
+
+
+\DocumentationTok{\#\#\#\# Figure 7.4 }
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/Gibbs\_CI.pdf"}\NormalTok{,}\AttributeTok{height=}\DecValTok{6}\NormalTok{,}\AttributeTok{width=}\DecValTok{6}\NormalTok{,}\AttributeTok{family=}\StringTok{"Times"}\NormalTok{)}
+
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfcol=}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{),}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\FloatTok{2.75}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{,.}\DecValTok{75}\NormalTok{,}\DecValTok{0}\NormalTok{),}\AttributeTok{oma=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.5}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\FunctionTok{plotci.sA}\NormalTok{(COR)}
+
+\NormalTok{REG}\OtherTok{\textless{}{-}}\FunctionTok{sR.sC}\NormalTok{(COR)}
+\FunctionTok{plotci.sA}\NormalTok{(REG)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CQ}\OtherTok{\textless{}{-}}\FunctionTok{apply}\NormalTok{(COR, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), quantile,}\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(.}\DecValTok{025}\NormalTok{,.}\DecValTok{5}\NormalTok{,.}\DecValTok{975}\NormalTok{) )}
+
+\FunctionTok{round}\NormalTok{(CQ[}\DecValTok{1}\NormalTok{,,],}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Reading Listening Writing Speaking Overall
+## Reading      1.00      0.78    0.63     0.65    0.77
+## Listening    0.78      1.00    0.67     0.65    0.79
+## Writing      0.63      0.67    1.00     0.55    0.66
+## Speaking     0.65      0.65    0.55     1.00    0.67
+## Overall      0.77      0.79    0.66     0.67    1.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(CQ[}\DecValTok{2}\NormalTok{,,],}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Reading Listening Writing Speaking Overall
+## Reading      1.00      0.89    0.80     0.81    0.89
+## Listening    0.89      1.00    0.83     0.82    0.89
+## Writing      0.80      0.83    1.00     0.75    0.82
+## Speaking     0.81      0.82    0.75     1.00    0.83
+## Overall      0.89      0.89    0.82     0.83    1.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(CQ[}\DecValTok{3}\NormalTok{,,],}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Reading Listening Writing Speaking Overall
+## Reading      1.00      0.94    0.89     0.90    0.94
+## Listening    0.94      1.00    0.91     0.90    0.95
+## Writing      0.89      0.91    1.00     0.86    0.91
+## Speaking     0.90      0.90    0.86     1.00    0.91
+## Overall      0.94      0.95    0.91     0.91    1.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(}\FunctionTok{apply}\NormalTok{(COR,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),mean),}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Reading Listening Writing Speaking Overall
+## Reading      1.00      0.88    0.79     0.80    0.88
+## Listening    0.88      1.00    0.82     0.81    0.88
+## Writing      0.79      0.82    1.00     0.74    0.81
+## Speaking     0.80      0.81    0.74     1.00    0.82
+## Overall      0.88      0.88    0.81     0.82    1.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/Posterior\_vs\_Prior.pdf"}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{,.}\DecValTok{75}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+
+\NormalTok{S0\_prior }\OtherTok{\textless{}{-}} \FunctionTok{rwish}\NormalTok{(}\AttributeTok{n=}\DecValTok{1000}\NormalTok{, }\AttributeTok{nu0=}\NormalTok{nu0, S0)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(SIGMA[,}\DecValTok{1}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, sigma[}\DecValTok{11}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(Sigma[}\DecValTok{11}\NormalTok{]), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{1.5}\NormalTok{))}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(S0\_prior[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,]),}\AttributeTok{col=}\StringTok{"gray"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{S0[}\DecValTok{1}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(THETA[,}\DecValTok{1}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, theta[}\DecValTok{1}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(theta[}\DecValTok{1}\NormalTok{]))}
+\NormalTok{x\_theta }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x\_theta, }\FunctionTok{dnorm}\NormalTok{(x\_theta, }\AttributeTok{mean=}\NormalTok{mu0[}\DecValTok{1}\NormalTok{], }\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(S0[}\DecValTok{1}\NormalTok{])), }
+      \AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{mu0[}\DecValTok{1}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(SIGMA[,}\DecValTok{5}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{+}\DecValTok{2}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, sigma[}\DecValTok{22}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(Sigma[}\DecValTok{22}\NormalTok{]), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{1.5}\NormalTok{))}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(S0\_prior[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,]),}\AttributeTok{col=}\StringTok{"gray"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{+}\DecValTok{2}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(THETA[,}\DecValTok{2}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, theta[}\DecValTok{2}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(theta[}\DecValTok{2}\NormalTok{]))}
+\NormalTok{x\_theta }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x\_theta, }\FunctionTok{dnorm}\NormalTok{(x\_theta, }\AttributeTok{mean=}\NormalTok{mu0[}\DecValTok{2}\NormalTok{], }\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{1}\SpecialCharTok{+}\DecValTok{2}\NormalTok{])), }
+      \AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{mu0[}\DecValTok{2}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(SIGMA[,}\DecValTok{5}\SpecialCharTok{*}\DecValTok{2}\SpecialCharTok{+}\DecValTok{3}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, sigma[}\DecValTok{33}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(Sigma[}\DecValTok{33}\NormalTok{]), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{1.5}\NormalTok{))}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(S0\_prior[}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,]),}\AttributeTok{col=}\StringTok{"gray"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{2}\SpecialCharTok{+}\DecValTok{3}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(THETA[,}\DecValTok{3}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, theta[}\DecValTok{3}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(theta[}\DecValTok{3}\NormalTok{]))}
+\NormalTok{x\_theta }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x\_theta, }\FunctionTok{dnorm}\NormalTok{(x\_theta, }\AttributeTok{mean=}\NormalTok{mu0[}\DecValTok{3}\NormalTok{], }\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{2}\SpecialCharTok{+}\DecValTok{3}\NormalTok{])), }
+      \AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{mu0[}\DecValTok{3}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(SIGMA[,}\DecValTok{5}\SpecialCharTok{*}\DecValTok{3}\SpecialCharTok{+}\DecValTok{4}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, sigma[}\DecValTok{44}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(Sigma[}\DecValTok{44}\NormalTok{]), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{1.5}\NormalTok{))}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(S0\_prior[}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,]),}\AttributeTok{col=}\StringTok{"gray"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{3}\SpecialCharTok{+}\DecValTok{4}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(THETA[,}\DecValTok{4}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, theta[}\DecValTok{4}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(theta[}\DecValTok{4}\NormalTok{]))}
+\NormalTok{x\_theta }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x\_theta, }\FunctionTok{dnorm}\NormalTok{(x\_theta, }\AttributeTok{mean=}\NormalTok{mu0[}\DecValTok{4}\NormalTok{], }\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{3}\SpecialCharTok{+}\DecValTok{4}\NormalTok{])), }
+      \AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{mu0[}\DecValTok{4}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(SIGMA[,}\DecValTok{5}\SpecialCharTok{*}\DecValTok{4}\SpecialCharTok{+}\DecValTok{5}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, sigma[}\DecValTok{55}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(Sigma[}\DecValTok{55}\NormalTok{]), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{1.5}\NormalTok{))}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(S0\_prior[}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{,]),}\AttributeTok{col=}\StringTok{"gray"}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{4}\SpecialCharTok{+}\DecValTok{5}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(THETA[,}\DecValTok{5}\NormalTok{]), }
+     \AttributeTok{main=}\FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Posterior density of "}\NormalTok{, theta[}\DecValTok{5}\NormalTok{],}\AttributeTok{sep=}\StringTok{""}\NormalTok{)), }
+     \AttributeTok{xlab=}\FunctionTok{expression}\NormalTok{(theta[}\DecValTok{5}\NormalTok{]))}
+\NormalTok{x\_theta }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{100}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x\_theta, }\FunctionTok{dnorm}\NormalTok{(x\_theta, }\AttributeTok{mean=}\NormalTok{mu0[}\DecValTok{5}\NormalTok{], }\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(S0[}\DecValTok{5}\SpecialCharTok{*}\DecValTok{4}\SpecialCharTok{+}\DecValTok{5}\NormalTok{])), }
+      \AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\NormalTok{mu0[}\DecValTok{5}\NormalTok{], }\AttributeTok{lty=}\DecValTok{2}\NormalTok{, }\AttributeTok{col=}\StringTok{"GRAY"}\NormalTok{, }\AttributeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\subsubsection{IELTS scores Missing Data Imputation By Gibbs
+sampler}\label{ielts-scores-missing-data-imputation-by-gibbs-sampler-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{em\_algorithm }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data, }\AttributeTok{max\_iter =} \DecValTok{100}\NormalTok{, }\AttributeTok{tol =} \FloatTok{1e{-}6}\NormalTok{) \{}
+    \CommentTok{\# Initial estimates}
+\NormalTok{    means }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(data, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{mean}\NormalTok{(x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{    sigma }\OtherTok{\textless{}{-}} \FunctionTok{cov}\NormalTok{(data, }\AttributeTok{use =} \StringTok{"complete.obs"}\NormalTok{)}
+  
+    \CommentTok{\# Iteration control}
+\NormalTok{    iter }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{    conv }\OtherTok{\textless{}{-}} \ConstantTok{FALSE}
+
+    \ControlFlowTok{while}\NormalTok{ (iter }\SpecialCharTok{\textless{}=}\NormalTok{ max\_iter }\SpecialCharTok{\&\&} \SpecialCharTok{!}\NormalTok{conv) \{}
+        \CommentTok{\# E{-}step: Estimate missing values}
+    \CommentTok{\#print(iter)}
+\NormalTok{        data\_imputed }\OtherTok{\textless{}{-}}\NormalTok{ data}
+        \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(data)) \{}
+\NormalTok{            missing }\OtherTok{\textless{}{-}} \FunctionTok{is.na}\NormalTok{(data[i,])}
+            \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{any}\NormalTok{(missing)) \{}
+\NormalTok{                obs }\OtherTok{\textless{}{-}} \SpecialCharTok{!}\NormalTok{missing}
+\NormalTok{                mu\_obs }\OtherTok{\textless{}{-}}\NormalTok{ means[obs]}
+\NormalTok{                mu\_miss }\OtherTok{\textless{}{-}}\NormalTok{ means[missing]}
+\NormalTok{                Sigma\_oo }\OtherTok{\textless{}{-}}\NormalTok{ sigma[obs, obs]}
+\NormalTok{                Sigma\_om }\OtherTok{\textless{}{-}}\NormalTok{ sigma[obs, missing]}
+\NormalTok{                Sigma\_mm }\OtherTok{\textless{}{-}}\NormalTok{ sigma[missing, missing]}
+\NormalTok{                Sigma\_mo }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(Sigma\_om)}
+\NormalTok{            s2.j   }\OtherTok{\textless{}{-}}\NormalTok{ Sigma\_mm }\SpecialCharTok{{-}}\NormalTok{ Sigma\_mo}\SpecialCharTok{\%*\%}\FunctionTok{solve}\NormalTok{(Sigma\_oo)}\SpecialCharTok{\%*\%}\NormalTok{Sigma\_om}
+                
+                \CommentTok{\# Conditional mean and covariance}
+\NormalTok{                cond\_mean }\OtherTok{\textless{}{-}}\NormalTok{ mu\_miss }\SpecialCharTok{+}\NormalTok{ (Sigma\_mo }\SpecialCharTok{\%*\%} \FunctionTok{solve}\NormalTok{(Sigma\_oo)) }\SpecialCharTok{\%*\%}\NormalTok{ (}\FunctionTok{t}\NormalTok{(data[i, obs]) }\SpecialCharTok{{-}}\NormalTok{ mu\_obs)}
+\NormalTok{                data\_imputed[i, missing] }\OtherTok{\textless{}{-}} \FunctionTok{rmvnorm}\NormalTok{(}\DecValTok{1}\NormalTok{, cond\_mean, s2.j)}
+\NormalTok{            \}}
+\NormalTok{        \}}
+      
+        \CommentTok{\# M{-}step: Re{-}estimate parameters}
+\NormalTok{        old\_means }\OtherTok{\textless{}{-}}\NormalTok{ means}
+\NormalTok{        old\_sigma }\OtherTok{\textless{}{-}}\NormalTok{ sigma}
+        
+\NormalTok{        means }\OtherTok{\textless{}{-}} \FunctionTok{colMeans}\NormalTok{(data\_imputed, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{        sigma }\OtherTok{\textless{}{-}} \FunctionTok{cov}\NormalTok{(data\_imputed, }\AttributeTok{use =} \StringTok{"pairwise.complete.obs"}\NormalTok{)}
+
+        \CommentTok{\# Check for convergence}
+\NormalTok{        conv }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(}\FunctionTok{abs}\NormalTok{(old\_means }\SpecialCharTok{{-}}\NormalTok{ means), }\FunctionTok{abs}\NormalTok{(sigma }\SpecialCharTok{{-}}\NormalTok{ old\_sigma)) }\SpecialCharTok{\textless{}}\NormalTok{ tol}
+\NormalTok{        iter }\OtherTok{\textless{}{-}}\NormalTok{ iter }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{    \}}
+  
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{means =}\NormalTok{ means, }\AttributeTok{sigma =}\NormalTok{ sigma, }\AttributeTok{data\_imputed =}\NormalTok{ data\_imputed))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EM\_start\_time}\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\NormalTok{em\_result }\OtherTok{\textless{}{-}} \FunctionTok{em\_algorithm}\NormalTok{(Y)}
+\NormalTok{EM\_end\_time}\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\# Plot the Predicted vs True value}
+\FunctionTok{pdf}\NormalTok{(}\StringTok{"pic/EM\_PredvsTrue.pdf"}\NormalTok{,}\AttributeTok{family=}\StringTok{"Times"}\NormalTok{, }\AttributeTok{height=}\DecValTok{14}\NormalTok{,}\AttributeTok{width=}\DecValTok{4}\NormalTok{)}
+\NormalTok{Y.true}\OtherTok{\textless{}{-}}\NormalTok{Y0}
+\NormalTok{V}\OtherTok{\textless{}{-}}\FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{p,}\AttributeTok{nrow=}\NormalTok{n,}\AttributeTok{ncol=}\NormalTok{p,}\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{v.miss}\OtherTok{\textless{}{-}}\NormalTok{V[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\NormalTok{y.pred }\OtherTok{\textless{}{-}}\NormalTok{ em\_result}\SpecialCharTok{$}\NormalTok{data\_imputed}
+\NormalTok{y.pred }\OtherTok{\textless{}{-}}\NormalTok{ y.pred[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\NormalTok{y.true}\OtherTok{\textless{}{-}}\NormalTok{Y.true[O}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\NormalTok{MSE\_EM}\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{((y.true}\SpecialCharTok{{-}}\NormalTok{ y.pred)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{mgp=}\FunctionTok{c}\NormalTok{(}\FloatTok{1.75}\NormalTok{,.}\DecValTok{75}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{p)\{ }\FunctionTok{plot}\NormalTok{(y.true[v.miss}\SpecialCharTok{==}\NormalTok{j], y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j], }
+          \AttributeTok{xlab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"true"}\NormalTok{, }\FunctionTok{colnames}\NormalTok{(Y.true)[j]), }
+          \AttributeTok{ylab=}\FunctionTok{paste}\NormalTok{(}\StringTok{"predictied"}\NormalTok{, }\FunctionTok{colnames}\NormalTok{(Y.true)[j]),}\AttributeTok{pch=}\DecValTok{16}\NormalTok{ )}
+          \FunctionTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{mse }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{((y.true[v.miss}\SpecialCharTok{==}\NormalTok{j]}\SpecialCharTok{{-}}\NormalTok{ y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j])}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{),}\DecValTok{4}\NormalTok{)}
+\FunctionTok{text}\NormalTok{(}\AttributeTok{x=}\FunctionTok{min}\NormalTok{(y.true[v.miss}\SpecialCharTok{==}\NormalTok{j]),}\AttributeTok{y=}\FunctionTok{max}\NormalTok{(y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j]),}\FunctionTok{paste}\NormalTok{(}\StringTok{"MSE:"}\NormalTok{, mse, }\AttributeTok{sep=}\StringTok{""}\NormalTok{), }
+     \AttributeTok{col=}\StringTok{"BLUE"}\NormalTok{, }\AttributeTok{cex=}\FloatTok{1.5}\NormalTok{, }\AttributeTok{adj=}\DecValTok{0}\NormalTok{,}\AttributeTok{pos=}\DecValTok{4}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(j, }\FunctionTok{mean}\NormalTok{( (y.true[v.miss}\SpecialCharTok{==}\NormalTok{j]}\SpecialCharTok{{-}}\NormalTok{ y.pred[v.miss}\SpecialCharTok{==}\NormalTok{j])}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{),}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{) \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1 0.1027275
+\end{verbatim}
+
+\begin{verbatim}
+## 2 0.03862703
+\end{verbatim}
+
+\begin{verbatim}
+## 3 0.03020887
+\end{verbatim}
+
+\begin{verbatim}
+## 4 0.249199
+\end{verbatim}
+
+\begin{verbatim}
+## 5 0.02529312
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(MSE\_GIBBS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03895665
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(GIBBS\_end\_time }\SpecialCharTok{{-}}\NormalTok{ GIBBS\_start\_time)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time difference of 10.27271 secs
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(MSE\_EM)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.06930736
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(EM\_end\_time }\SpecialCharTok{{-}}\NormalTok{ EM\_start\_time)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time difference of 1.245525 secs
+\end{verbatim}
 \end{document}
